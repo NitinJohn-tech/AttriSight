@@ -1,6 +1,7 @@
 # AttriSight 🔍
 
 AttriSight is a web-based employee attrition prediction system built using Django and machine learning. It helps organizations identify which employees are at risk of leaving.
+(Still in development)
 
 ## 🚀 Features
 
