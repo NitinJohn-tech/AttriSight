@@ -19,7 +19,7 @@ AttriSight is a web-based employee attrition prediction system built using Djang
 ## 📁 Project Structure
 
 ```
-EMPLOYEE_A/
+attrition/
 ├── accounts/                      # Handles user login & registration
 │   ├── migrations/               # Django migration files
 │   ├── __pycache__/             # Bytecode cache (auto-generated)
@@ -44,6 +44,5 @@ EMPLOYEE_A/
 │   ├── register.html
 │   └── service.html
 ├── db.sqlite3                   # SQLite DB (can be switched to PostgreSQL)
-├── manage.py                    # Django project runner
-└── Employee.ipynb               # ML Jupyter Notebook
+└── manage.py                    # Django project runner
 ```
