@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Attrition Prediction</title>
+    <script>
+        async function predictAttrition(event) {
+            event.preventDefault();  // Prevent page reload
+
+            let formData = {
+                Age: parseInt(document.getElementById("age").value),
+                BusinessTravel: document.getElementById("businessTravel").value,
+                DailyRate: parseInt(document.getElementById("dailyRate").value),
+                Department: document.getElementById("department").value,
+                DistanceFromHome: parseInt(document.getElementById("distance").value),
+                Education: parseInt(document.getElementById("education").value),
+                JobLevel: parseInt(document.getElementById("jobLevel").value),
+                JobRole: document.getElementById("jobRole").value,
+                JobSatisfaction: parseInt(document.getElementById("jobSatisfaction").value),
+                MaritalStatus: document.getElementById("maritalStatus").value,
+                MonthlyIncome: parseInt(document.getElementById("monthlyIncome").value),
+                OverTime: document.getElementById("overtime").value,
+                StockOptionLevel: parseInt(document.getElementById("stockOptionLevel").value),
+                TotalWorkingYears: parseInt(document.getElementById("totalWorkingYears").value),
+                WorkLifeBalance: parseInt(document.getElementById("workLifeBalance").value)
+            };
+
+
+
+            let response = await fetch("/predict/", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(formData)
+            });
+
+            let result = await response.json();
+            document.getElementById("result").innerHTML =
+                response.ok 
+                ? `Attrition: ${result.attrition} <br> Probability: ${(result.probability * 100).toFixed(2)}%`
+                : `Error: ${result.error}`;
+        }
+    </script>
+</head>
+<body>
+    <h1>Employee Attrition Prediction</h1>
+    <form onsubmit="predictAttrition(event)">
+        <label>Age: <input type="number" id="age" required></label><br>
+
+        <label>Business Travel:
+            <select id="businessTravel">
+                <option value="1">Rarely</option>
+                <option value="2">Frequently</option>
+                <option value="3">Non-Travel</option>
+            </select>
+        </label><br>
+
+        <label>Daily Rate: <input type="number" id="dailyRate" required></label><br>
+
+        <label>Department:
+            <select id="department">
+                <option value="1">Sales</option>
+                <option value="2">R&D</option>
+                <option value="3">HR</option>
+            </select>
+        </label><br>
+
+        <label>Distance From Home: <input type="number" id="distance" required></label><br>
+
+        <label>Education (1-5): <input type="number" id="education" min="1" max="5" required></label><br>
+
+        <label>Job Level (1-5): <input type="number" id="jobLevel" min="1" max="5" required></label><br>
+
+        <label>Job Role:
+            <select id="jobRole">
+                <option value="1">Sales Executive</option>
+                <option value="2">Manager</option>
+                <option value="3">Laboratory Technician</option>
+                <option value="4">Research Scientist</option>
+                <option value="5">Manufacturing Director</option>
+            </select>
+        </label><br>
+
+        <label>Job Satisfaction (1-4): <input type="number" id="jobSatisfaction" min="1" max="4" required></label><br>
+
+        <label>Marital Status:
+            <select id="maritalStatus">
+                <option value="1">Single</option>
+                <option value="2">Married</option>
+                <option value="3">Divorced</option>
+            </select>
+        </label><br>
+
+        <label>Monthly Income: <input type="number" id="monthlyIncome" required></label><br>
+
+        <label>OverTime:
+            <select id="overtime">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+        </label><br>
+
+        <label>Stock Option Level (0-3): <input type="number" id="stockOptionLevel" min="0" max="3" required></label><br>
+
+        <label>Total Working Years: <input type="number" id="totalWorkingYears" required></label><br>
+
+        <label>Work-Life Balance (1-4): <input type="number" id="workLifeBalance" min="1" max="4" required></label><br>
+
+        <button type="submit">Predict</button>
+    </form>
+    
+    
+
+    <h2>Result:</h2>
+    <p id="result"></p>
+</body>
+</html>
+

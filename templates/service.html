@@ -1,0 +1,255 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>DGital - Digital Agency HTML Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <!-- Bootstrap JS -->
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    
+    <!-- Stylesheets -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+    
+    <!-- Add this with your other CSS -->
+    <link href="{% static 'lib/animate/animate.min.css' %}" rel="stylesheet">
+
+</head>
+<body>
+    <div class="container-xxl bg-white p-0">
+        <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
+            <a href="" class="navbar-brand p-0"><h1 class="m-0">DGital</h1></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="fa fa-bars"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav mx-auto py-0">
+                    <a href="{% url 'home' %}" class="nav-item nav-link">Home</a>
+                    <a href="{% url 'about' %}" class="nav-item nav-link">About</a>
+                    <a href="{% url 'service' %}" class="nav-item nav-link active">Service</a>
+                    <a href="{% url 'project' %}" class="nav-item nav-link ">Project</a>
+                    <a href="{% url 'logout' %}" class="nav-item nav-link {% if request.path == '/logout/' %}active{% endif %}">Logout</a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container-xxl py-5 bg-primary hero-header">
+            <div class="container my-5 py-5 px-lg-5">
+                <div class="row g-5 py-5">
+                    <div class="col-12 text-center">
+                        <h1 class="text-white animated slideInDown">Our Services</h1>
+                        <hr class="bg-white mx-auto mt-0" style="width: 90px;">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb justify-content-center">
+                                <li class="breadcrumb-item"><a class="text-white" href="{% url 'home' %}">Home</a></li>
+                                <li class="breadcrumb-item"><a class="text-white" href="#">Pages</a></li>
+                                <li class="breadcrumb-item text-white active" aria-current="page">Service</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container py-5">
+            <h2 class="text-center mb-4">Employee Attrition Prediction</h2>
+            <form onsubmit="predictAttrition(event)">
+                
+<div class="form-control">
+    <div class="form-control">
+      <label><strong>Age:</strong> <input type="number" id="age" class="form-control" min="16" max="75" required></label>
+    </div>
+    
+    <div class="form-control">
+      <label><strong>Business Travel:</strong> 
+        <select id="businessTravel" class="form-control">
+          <option value="1">Rarely</option>
+          <option value="2">Frequently</option>
+          <option value="3">Non-Travel</option>
+        </select>
+      </label>
+    </div>
+    
+    <div class="form-control">
+      <label><strong>Daily Rate:</strong> <input type="number" id="dailyRate" class="form-control" required></label>
+    </div>
+    
+    <div class="form-control">
+      <label><strong>Department:</strong>
+        <select id="department" class="form-control">
+          <option value="1">Sales</option>
+          <option value="2">R&D</option>
+          <option value="3">HR</option>
+        </select>
+      </label>
+    </div>
+    
+    <div class="form-control">
+      <label><strong>Distance From Home:</strong> <input type="number" id="distance" class="form-control" required></label>
+    </div>
+    
+    <div class="form-control">
+      <label>
+        <strong>Education:</strong>
+        <input type="number" id="education" class="form-control" min="1" max="5" required>
+        <span class="note">(1-5)</span>
+      </label>
+    </div>
+    
+    <div class="form-control">
+      <label>
+        <strong>Job Level:</strong>
+        <input type="number" id="jobLevel" class="form-control" min="1" max="5" required>
+        <span class="note">(1-5)</span>
+      </label>
+    </div>
+    
+    <div class="form-control">
+      <label><strong>Job Role:</strong>
+        <select id="jobRole" class="form-control">
+          <option value="1">Sales Executive</option>
+          <option value="2">Manager</option>
+          <option value="3">Laboratory Technician</option>
+          <option value="4">Research Scientist</option>
+          <option value="5">Manufacturing Director</option>
+        </select>
+      </label>
+    </div>
+    
+    <div class="form-control">
+      <label>
+        <strong>Job Satisfaction:</strong>
+        <input type="number" id="jobSatisfaction" class="form-control" min="1" max="4" required>
+        <span class="note">(1-4)</span>
+      </label>
+    </div>
+    
+    <div class="form-control">
+      <label><strong>Marital Status:</strong>
+        <select id="maritalStatus" class="form-control">
+          <option value="1">Single</option>
+          <option value="2">Married</option>
+          <option value="3">Divorced</option>
+        </select>
+      </label>
+    </div>
+    
+    <div class="form-control">
+      <label><strong>Monthly Income:</strong> <input type="number" id="monthlyIncome" class="form-control" required></label>
+    </div>
+    
+    <div class="form-control">
+      <label><strong>OverTime:</strong>
+        <select id="overtime" class="form-control">
+          <option value="0">No</option>
+          <option value="1">Yes</option>
+        </select>
+      </label>
+    </div>
+    
+    <div class="form-control">
+      <label>
+        <strong>Stock Option Level:</strong>
+        <input type="number" id="stockOptionLevel" class="form-control" min="0" max="3" required>
+        <span class="note">(0-3)</span>
+      </label>
+    </div>
+    
+    <div class="form-control">
+      <label><strong>Total Working Years:</strong> <input type="number" id="totalWorkingYears" class="form-control" required></label>
+    </div>
+    
+    <div class="form-control">
+      <label>
+        <strong>Work-Life Balance:</strong>
+        <input type="number" id="workLifeBalance" class="form-control" min="1" max="4" required>
+        <span class="note">(1-4)</span>
+      </label>
+    </div>
+  </div>
+                <button type="submit"class="btn btn-primary mt-3">Predict</button>
+            </form>
+            <h3 class="mt-4">Result:</h3>
+            <p id="result"></p>
+        </div>
+    </div>
+
+    <script>
+        async function predictAttrition(event) {
+            event.preventDefault();
+            let formData = {
+                Age: parseInt(document.getElementById("age").value),
+                BusinessTravel: document.getElementById("businessTravel").value,
+                DailyRate: parseInt(document.getElementById("dailyRate").value),
+                Department: document.getElementById("department").value,
+                DistanceFromHome: parseInt(document.getElementById("distance").value),
+                Education: parseInt(document.getElementById("education").value),
+                JobLevel: parseInt(document.getElementById("jobLevel").value),
+                JobRole: document.getElementById("jobRole").value,
+                JobSatisfaction: parseInt(document.getElementById("jobSatisfaction").value),
+                MaritalStatus: document.getElementById("maritalStatus").value
+            };
+            
+            let response = await fetch("/predict/", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(formData)
+            });
+
+            let result = await response.json();
+            document.getElementById("result").innerHTML =
+                response.ok 
+                ? `Attrition: ${result.attrition} <br> Probability: ${(result.probability * 100).toFixed(2)}%`
+                : `Error: ${result.error}`;
+        }
+    </script>
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-primary text-light footer wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5 px-lg-5">
+            <div class="row g-5">
+                <div class="col-md-6 col-lg-3">
+                    <p class="section-title text-white h5 mb-4">Address<span></span></p>
+                    <p><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
+                    <p><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
+                    <p><i class="fa fa-envelope me-3"></i>info@example.com</p>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <p class="section-title text-white h5 mb-4">Quick Link<span></span></p>
+                    <a class="btn btn-link" href="{% url 'about' %}">About Us</a>
+                    <a class="btn btn-link" href="#">Contact Us</a>
+                    <a class="btn btn-link" href="#">Privacy Policy</a>
+                    <a class="btn btn-link" href="#">Terms & Condition</a>
+                    <a class="btn btn-link" href="#">Career</a>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <p class="section-title text-white h5 mb-4">Newsletter<span></span></p>
+                    <p>Lorem ipsum dolor sit amet elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non vulpu</p>
+                    <div class="position-relative w-100 mt-3">
+                        <input class="form-control border-0 rounded-pill w-100 ps-4 pe-5" type="text" placeholder="Your Email" style="height: 48px;">
+                        <button type="button" class="btn shadow-none position-absolute top-0 end-0 mt-1 me-2"><i class="fa fa-paper-plane text-primary fs-4"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+    <!-- Correct loading order -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'lib/waypoints/waypoints.min.js' %}"></script>
+    <script src="{% static 'lib/easing/easing.min.js' %}"></script>
+    <script src="{% static 'lib/wow/wow.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+
+</body>
+</html>
