@@ -31,7 +31,8 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-u-q@7e*xyj*qz@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['attrisight-2.onrender.com', 'localhost', '127.0.0.1']
+
 
 import os
 
