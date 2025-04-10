@@ -3,9 +3,10 @@ services:
     name: medisync-chatbot
     env: python
     buildCommand: "pip install -r requirements.txt"
-    startCommand: "gunicorn attrition.wsgi:application"
+    startCommand: "python manage.py migrate && gunicorn attrition.wsgi:application"
     envVars:
       - key: DEBUG
         value: "False"
       - key: DJANGO_ALLOWED_HOSTS
         value: "your-app-name.onrender.com"
+
