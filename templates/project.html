@@ -19,6 +19,91 @@
     <meta content="" name="keywords">
     <meta content="" name="description">
 
+    <style>
+       
+
+        .csv-upload-container {
+            max-width: 700px;
+            margin: 30px auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .csv-upload-heading {
+            color: #333;
+            text-align: center;
+        }
+
+        .csv-upload-error {
+            color: #e74c3c;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .csv-upload-form {
+            margin-top: 20px;
+        }
+
+        .csv-upload-form input[type="file"] {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        .csv-upload-button {
+            background-color: #0066cc;
+            color: white;
+            padding: 10px 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .csv-upload-button:hover {
+            background-color: #005bb5;
+        }
+
+        .csv-upload-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+        }
+
+        .csv-upload-table th,
+        .csv-upload-table td {
+            border: 1px solid #ddd;
+            padding: 12px 15px;
+            text-align: center;
+        }
+
+        .csv-upload-table th {
+            background-color: #f0f0f0;
+            color: #333;
+        }
+
+        .csv-upload-table tr:nth-child(even) {
+            background-color: #fafafa;
+        }
+
+        .csv-upload-download-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            font-weight: bold;
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .csv-upload-download-link:hover {
+            text-decoration: underline;
+        }
+    </style> 
+
     <!-- Favicon -->
     <link href="{% static 'img/favicon.ico' %}" rel="icon">
 

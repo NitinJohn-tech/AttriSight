@@ -62,7 +62,7 @@
                         <a href="{% url 'home' %}" class="nav-item nav-link">Home</a>
                         <a href="{% url 'about' %}" class="nav-item nav-link active">About</a>
                         <a href="{% url 'service' %}" class="nav-item nav-link ">Service</a>
-                        <a href="{% url 'project' %}" class="nav-item nav-link">Project</a>
+                        <a href="{% url 'upload_csv' %}" class="nav-item nav-link {% if request.path == '/upload/' %}active{% endif %}">Project</a>
                         <a href="{% url 'logout' %}" class="nav-item nav-link {% if request.path == '/logout/' %}active{% endif %}">Logout</a>
                     </div>
                 </div>
