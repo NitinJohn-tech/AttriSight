@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(to right, #4facfe, #00f2fe);
+            background: linear-gradient(to right, #6528F7, #A076F9);
             margin: 0;
             padding: 0;
             display: flex;
@@ -26,6 +26,17 @@
             text-align: center;
             animation: fadeIn 0.8s ease-in-out;
         }
+        .brand {
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            font-weight: bold;
+            font-size: 44px;
+            color: white; /* or black, depending on your background */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            z-index: 10;
+        }
+
 
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(-20px); }
@@ -65,7 +76,7 @@
         button {
             width: 100%;
             padding: 12px;
-            background-color: #4facfe;
+            background-color: #6528F7;
             border: none;
             color: white;
             border-radius: 8px;
@@ -126,6 +137,7 @@
     </style>
 </head>
 <body>
+    <div class="brand">AttriSight</div>
     <div class="login-container">
         <h2>Login</h2>
         <form method="post">
@@ -149,6 +161,7 @@
         </form>
 
         <a href="{% url 'register' %}">Don't have an account? Register</a>
+    </div>
     </div>
 
     <script>
