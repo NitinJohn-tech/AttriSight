@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Register | Employee</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -20,9 +21,11 @@
             padding: 40px;
             border-radius: 15px;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-            width: 400px;
+            width: 100%;
+            max-width: 400px;
             text-align: center;
             animation: fadeIn 0.8s ease-in-out;
+            box-sizing: border-box;
         }
 
         @keyframes fadeIn {
@@ -44,9 +47,11 @@
             width: 100%;
             padding: 12px;
             margin-top: 5px;
+            margin-bottom: 15px;
             border: 1px solid #ccc;
             border-radius: 8px;
             transition: border-color 0.3s;
+            box-sizing: border-box;
         }
 
         form input:focus {
@@ -63,7 +68,7 @@
             border-radius: 8px;
             font-size: 16px;
             cursor: pointer;
-            margin-top: 15px;
+            margin-top: 10px;
             transition: background-color 0.3s;
         }
 
@@ -96,9 +101,119 @@
         label {
             font-weight: 500;
         }
+
+        /* Responsive Design */
+        @media (max-width: 500px) {
+            body {
+                padding: 20px;
+                height: auto;
+                align-items: flex-start;
+            }
+
+            .register-container {
+                margin-top: 40px;
+                padding: 30px 20px;
+            }
+        }
     </style>
 </head>
 <body>
+    <!--Password Alert-->
+    <div id="alertBox" class="alert-slide">
+        <span class="close-btn" onclick="this.parentElement.style.display='none';">&times;</span>
+        <strong>⚠️ Heads Up Before You Register!</strong><br><br>
+        To keep your account secure, please follow these password rules:
+        <ul>
+            <li>✅ At least <strong>8 characters</strong></li>
+            <li>🔤 Use both <strong>letters and numbers</strong></li>
+            <li>🚫 No common passwords (like <code>password123</code>)</li>
+            <li>👤 Don’t use your name or email in your password</li>
+            <li>❌ No passwords made of just numbers</li>
+        </ul>
+        <em>Stay safe — create a strong password!</em> 🔐
+    </div>
+    
+    
+    <style>
+        /* Responsive Alert Box */
+        .alert-slide {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        max-width: 90%;
+        width: 320px;
+        background-color: #fff3cd;
+        border-left: 5px solid #ffc107;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        padding: 20px;
+        border-radius: 10px;
+        font-size: 14px;
+        color: #333;
+        z-index: 9999;
+        animation: slideIn 0.5s ease-out;
+    }
+    
+    .alert-slide ul {
+        margin: 10px 0 0 18px;
+        padding: 0;
+    }
+    
+    .alert-slide ul li {
+        margin-bottom: 5px;
+        list-style: disc;
+    }
+    
+    .alert-slide em {
+        display: block;
+        margin-top: 10px;
+        font-style: italic;
+        font-size: 13px;
+        color: #555;
+    }
+    
+    .close-btn {
+        position: absolute;
+        top: 8px;
+        right: 12px;
+        font-size: 20px;
+        font-weight: bold;
+        color: #555;
+        cursor: pointer;
+    }
+    
+    .close-btn:hover {
+        color: #000;
+    }
+    
+    @keyframes slideIn {
+        from {
+            transform: translateX(100%);
+            opacity: 0;
+        }
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .alert-slide {
+            left: 50%;
+            transform: translateX(-50%);
+            right: auto;
+            top: 10px;
+            font-size: 13px;
+        }
+    
+        .close-btn {
+            top: 6px;
+            right: 10px;
+            font-size: 18px;
+        }
+    }
+    
+    </style>
+    <!---->    
     <div class="register-container">
         <h2>Register</h2>
         <form method="post">
@@ -110,7 +225,6 @@
             <input type="password" name="password2" placeholder="Confirm Password" required>
         
             <button type="submit">Register</button>
-        
 
             {% if messages %}
             <ul class="messages">

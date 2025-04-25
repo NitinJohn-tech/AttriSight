@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login | Employee</title>
     <style>
         body {
@@ -17,10 +18,11 @@
 
         .login-container {
             background-color: white;
-            padding: 40px;
+            padding: 40px 40px;
             border-radius: 15px;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-            width: 350px;
+            width: 100%;
+            max-width: 350px;
             text-align: center;
             animation: fadeIn 0.8s ease-in-out;
         }
@@ -42,6 +44,7 @@
             border: 1px solid #ccc;
             border-radius: 8px;
             transition: border-color 0.3s;
+            font-size: 14px;
         }
 
         input[type="text"]:focus, input[type="password"]:focus {
@@ -96,6 +99,30 @@
             list-style: none;
             font-size: 14px;
         }
+
+        /* Responsive styles */
+        @media (max-width: 480px) {
+            .login-container {
+                padding: 30px 30px;
+                border-radius: 10px;
+            }
+
+            h2 {
+                font-size: 22px;
+            }
+
+            input[type="text"], input[type="password"], button {
+                font-size: 14px;
+            }
+
+            .toggle-password {
+                font-size: 11px;
+            }
+
+            a {
+                font-size: 13px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -103,7 +130,6 @@
         <h2>Login</h2>
         <form method="post">
             {% csrf_token %}
-
             <input type="text" name="username" placeholder="Username" required>
             <input type="password" name="password" id="password" placeholder="Password" required>
 
