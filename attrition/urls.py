@@ -33,5 +33,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),                   # Admin panel
     path('accounts/', include('accounts.urls')),       # URLs from accounts app
     path('', include('employee_attrition.urls')),      # URLs from employee app (home page etc.)
+    path('predictions/', include('predictions.urls')),
 ]
 

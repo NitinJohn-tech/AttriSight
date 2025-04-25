@@ -205,6 +205,42 @@
             </div>
         </div>
         <!-- Projects End -->
+
+        <div class="csv-upload-container">
+            <h2 class="csv-upload-heading">Upload Employee CSV</h2>
+    
+            {% if error %}
+                <p class="csv-upload-error">{{ error }}</p>
+            {% endif %}
+    
+            <form method="post" enctype="multipart/form-data" class="csv-upload-form">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="csv-upload-button">Predict</button>
+            </form>
+    
+            {% if results %}
+                <h2 class="csv-upload-heading">Prediction Results</h2>
+                <table class="csv-upload-table">
+                    <tr>
+                        <th>Name</th>
+                        <th>Department</th>
+                        <th>Attrition Risk</th>
+                        <th>Suggested Action</th>
+                    </tr>
+                    {% for row in results %}
+                        <tr>
+                            <td>{{ row.Name }}</td>
+                            <td>{{ row.Department }}</td>
+                            <td>{{ row.AttritionRisk }}</td>
+                            <td>{{ row.SuggestedAction }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+    
+                <a href="{% url 'download_excel' %}" class="csv-upload-download-link">Download as Excel</a>
+            {% endif %}
+        </div>
         
         <!-- Footer Start -->
         <div class="container-fluid bg-primary text-light footer wow fadeIn" data-wow-delay="0.1s">

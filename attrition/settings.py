@@ -41,6 +41,7 @@ import os
 
 INSTALLED_APPS = [
     'accounts',
+    'predictions',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
