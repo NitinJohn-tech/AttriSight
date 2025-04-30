@@ -1,0 +1,10 @@
+EmployeeName,Age,Attrition,DailyRate,Department,DistanceFromHome,Education,Gender,HourlyRate,JobLevel,JobRole,MaritalStatus,MonthlyIncome,NumCompaniesWorked,OverTime,PercentSalaryHike,PerformanceRating,RelationshipSatisfaction,StockOptionLevel,TrainingTimesLastYear,WorkLifeBalance,YearsAtCompany,YearsInCurrentRole,YearsSinceLastPromotion,YearsWithCurrManager
+John Smith,35,No,1102,Research & Development,1,2,Female,59,2,Sales Executive,Single,5983,8,No,11,3,4,1,3,8,2,1,3,
+Jane Doe,42,Yes,1344,Research & Development,3,3,Male,68,3,Research Scientist,Married,4133,1,Yes,15,4,2,1,4,7,3,2,5,
+Alice Brown,29,No,1427,Human Resources,5,2,Female,60,1,Manager,Married,2380,3,Yes,12,3,1,0,5,5,4,0,2,
+Bob Johnson,38,Yes,1311,Research & Development,9,4,Female,52,3,Manufacturing Director,Single,13230,6,No,16,4,3,2,2,3,6,1,4,
+Michael Lee,54,No,1447,Research & Development,2,5,Male,83,2,Sales Executive,Married,3463,4,Yes,10,4,3,1,1,6,2,0,3,
+Emma Davis,43,No,1042,Research & Development,3,1,Female,59,1,Research Scientist,Single,2901,7,No,13,3,4,2,3,9,1,0,2,
+Chris Wilson,37,Yes,1563,Sales,8,3,Male,64,4,Manager,Married,2499,3,No,14,3,4,1,4,3,5,1,4,
+Olivia Moore,47,No,876,Sales,1,1,Female,20,1,Sales Executive,Single,587,1,Yes,10,1,2,0,1,7,3,0,4,
+Sophia Taylor,31,Yes,1201,Research & Development,4,2,Female,67,1,Manager,Single,4931,8,Yes,20,4,3,1,3,5,7,1,5,
